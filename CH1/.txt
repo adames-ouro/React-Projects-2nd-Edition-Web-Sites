@@ -2,4 +2,28 @@ In this chapter, we will create a single-page app in React that retrieves data f
 runs in the browser with Webpack and Babel. Styling will be done using Bootstrap.
 The app will show information about the popular TV show Rick and Morty along with images.
 
-It reuires the React Dev Tool plugin for Chrome. You can install it from the Chrome Web Store, and npm v6.14.3 or later and node v14.17.0 or later.
+
+Requirements and steps:
+
+It requires the React Dev Tool plugin for Chrome. 
+You can install it from the Chrome Web Store, and npm v6.14.3 or later and node v14.17.0 or later.
+
+Commands:
+
+The command "npm init -y" will create a fresh package.json file with the bare minimum of information needed to 
+run a JavaScript/React project. By adding the -y flag to the command, we can automatically skip 
+the steps where we set information such as the name, version, and description.
+After running this command, package.json file will be created.
+
+
+Webpack:
+To run React, we need to install Webpack and Webpack CLI as devDependencies.
+
+Webpack is a library that let us create a bundle out of JS/React code that can be used in a browser:
+
+npm install --save-dev webpack webpack-cli
+
+
+After installation, these packages are included inside the package.json file where 
+we can have them run in our start and build scripts. But first, we need to add
+a src folder with index.js in it (index.js will be the starting point of the app).
