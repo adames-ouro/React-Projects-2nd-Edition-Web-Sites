@@ -1,0 +1,5 @@
+In this chapter, we will create a single-page app in React that retrieves data from an API and
+runs in the browser with Webpack and Babel. Styling will be done using Bootstrap.
+The app will show information about the popular TV show Rick and Morty along with images.
+
+It reuires the React Dev Tool plugin for Chrome. You can install it from the Chrome Web Store, and npm v6.14.3 or later and node v14.17.0 or later.
