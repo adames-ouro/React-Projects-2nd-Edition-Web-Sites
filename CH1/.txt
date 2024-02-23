@@ -81,3 +81,14 @@ Creating a new React project involves adding som new files and modifying Webpack
 
   After this, when npm start is run, the index.html file will be added to dist directory and the index.html 
   will have an added scripts tag that directs to the project bundle dist/main.js
+
+Then index files (.js in src and .html in public are the important files, dist folder gets info from there)
+
+
+Creating a development server:
+
+webpack-dev-server forces Webpack to restart every time we make changes to our project
+npm install --save-dev webpack-dev-server
+
+modify dev script in package.json to use webpack-dev-server
+"start": "webpack serve –mode development",
