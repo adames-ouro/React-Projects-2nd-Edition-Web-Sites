@@ -104,3 +104,60 @@ Important folders:
  Note: node_modules holds source files for packages
 
 
+There are 3 common approaches for structures:
+  1. by structure by feature/page
+  2. by file type
+  3. a hybrid ( file first and feature second -> top level components (containers) and low level components (related to containers))
+
+
+
+Hybrid:
+
+1.in src, create a new folder called components with file List.js inside
+2. reference this List.js in index.js
+3. add a component to List component, Character.js located in components folder (inside src)
+
+
+Retrieving data:
+
+using restAPI: https://rickandmortyapi.com/documentation/#rest
+
+This url returns a JSON output with all posible endpoints for this API
+https://rickandmortyapi.com/character returns:
+
+id(int): The unique identifier of the character
+name(string): name of character
+origin(object): object containing name and link to character origin location
+image(string): the link to character image with 300 x 300 px
+
+
+In react, anything stores in the state can be passed down to the low level components, after which they are called props.
+useState -> Hook that can be used to store and update variables.
+useLoading -> hook that manages loading state of functions.
+
+
+Adding Style:
+
+Using Bootstrap to add style.
+npm install --save-dev bootstrap
+
+add bootstrap entry point to src/index.js so it can style the entire app.
+
+Loaders for webpack to compile CSS
+npm install --save-dev css-loader style-loader
+
+add packages as rule to the Webpack config:
+
++{
++         test: /\.css$/,
++         use: ['style-loader', 'css-loader'],
++ },
+
+after applying className to format app, we need to add ESLint package to the projectso we can maintain our code 
+by synchronizing patterns across the project.
+
+
+Adding ESLint:
+npm install --save-dev eslint eslint-webpack-plugin eslint-plugin-react
+
+to configure ESLint, we need to create a filed called .eslintrc in the project root directory and add some code.
