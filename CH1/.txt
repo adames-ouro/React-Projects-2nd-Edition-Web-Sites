@@ -27,3 +27,13 @@ npm install --save-dev webpack webpack-cli
 After installation, these packages are included inside the package.json file where 
 we can have them run in our start and build scripts. But first, we need to add
 a src folder with index.js in it (index.js will be the starting point of the app).
+
+In package.json modify scripts to:
+
+  "scripts": {
+    "start": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+
+  the npm start will run Webpack in dev mode 
+  the npm run build will create a production bundle using Webpack (minimizes code and decreases the size of the project bundle)
