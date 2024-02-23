@@ -1,0 +1,15 @@
+
+Creating a Portfolio in Reacct with Reusable Components:
+
+In this chapter, we will work with Creat React App kit and make 
+use of reusable React components and styling with styled-components and react-routers.
+
+ npx create-react-app ch2
+
+Creating a portfolio with Create React APP:
+
+the create react app makes it so we dont have to worry about 
+managing compile and build configurations for Babel and Webpack.
+
+it will install react, react-dom, and react-scripts, where the last package includes all the 
+configurations for compiling, running, and building React applications.
