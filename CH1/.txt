@@ -79,4 +79,5 @@ Creating a new React project involves adding som new files and modifying Webpack
     npm install --save-dev html-webpack-plugin
     modify webpack config
 
-  After this, when npm start is run, the index.html file will be added to dist directory
+  After this, when npm start is run, the index.html file will be added to dist directory and the index.html 
+  will have an added scripts tag that directs to the project bundle dist/main.js
