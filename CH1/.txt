@@ -37,3 +37,46 @@ In package.json modify scripts to:
 
   the npm start will run Webpack in dev mode 
   the npm run build will create a production bundle using Webpack (minimizes code and decreases the size of the project bundle)
+
+then run one of the previous two arguments
+
+
+Configure Webpack to work with React:
+
+Packages 'react' (generic core package) and 'react-dom' (entry point to browser DOM and renders React.)
+
+npm install react react-dom
+
+Babel
+
+Used to create a toolchain to use React in the browser with Webpack
+
+npm install --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react
+
+Next to the Babel core package, we'll also install babel-loader, which is a helper so that Babel 
+can run with Webpack and two preset packages. These preset packages help determine which plugins 
+will be used to compile our JavaScript code into a readable format for the browser 
+(@babel/preset-env) and to compile React-specific code (@babel/preset-react). 
+With the packages for React and the correct compilers installed, the next step is 
+to make them work with Webpack so that they are used when we run our application.
+To do this, configuration files for both Webpack and Babel need to be created in the src directory of the project:
+
+babel.config.json -> To use babe presets
+
+webpack.config.js -> tells webpack to use babel-loader for .js files and exclide node_modules
+
+After this Webpack and Babel set up, we can run JS and React from command line.
+
+
+Rendering a React Project:
+
+Creating a new React project involves adding som new files and modifying Webpack setup.
+
+  1. edit index file to use react and react-dom
+  2. create a public folder with index.html file (file that has step 1 element )
+    Inside the body of html, is a section with a "root" ID selector created in step 1 that matches mounted app
+  3. extedn webpack to add minified bundle code to the body tag as script when running
+    npm install --save-dev html-webpack-plugin
+    modify webpack config
+
+  After this, when npm start is run, the index.html file will be added to dist directory
