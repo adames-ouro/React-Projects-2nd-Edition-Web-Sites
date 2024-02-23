@@ -92,3 +92,15 @@ npm install --save-dev webpack-dev-server
 
 modify dev script in package.json to use webpack-dev-server
 "start": "webpack serve –mode development",
+
+
+
+Structuring a project:
+
+Important folders:
+
+ 1. dist directory is where the output from Webpack's bundle version of our app can be found.
+ 2. src includes the source code of the app
+ Note: node_modules holds source files for packages
+
+
