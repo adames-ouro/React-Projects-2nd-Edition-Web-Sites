@@ -1,12 +1,14 @@
 import ReactDOM from 'react-dom/client';
 import List from './components/List'; // refers to the List component in the List.js file
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
 
 function App() {
     return (
         <div className = 'container'>
-            <nav className = 'navbar sticky-top navbar-light bg-dark'>
-                <h1 className = 'navbar-brand text-light'> 
+            <nav className = 'navbar'>
+                <h1 className = 'navbar_text'> 
                 Rick and Morty </h1>
             </nav>
             <List />
