@@ -1,4 +1,5 @@
 ### React - Single web page
 
 ![Image](./web.png)
-Basic React application from scratch using React, ReactDOM, Webpack, Babel, Bootstrap and ESLint.
+
+Single page application using React, ReactDOM, Webpack, Babel, Bootstrap, CSS and ESLint.
