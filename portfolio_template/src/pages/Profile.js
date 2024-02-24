@@ -9,12 +9,12 @@ function Profile({userName}) {
 
     useEffect(() => {
         async function fetchData() {
-            const profile = await fetch('https://api.github.com/users/${userName}');
+            const profile = await fetch(`https://api.github.com/users/${userName}`);
             const result = await profile.json();
 
             if (result) {
                 setProfile(result);
-                setLoading(true);
+                setLoading(false);
             }
         }
         fetchData();
@@ -28,9 +28,9 @@ function Profile({userName}) {
             ) : (
                 <div>
                     <img
-                        src={profile.avatar_url}
-                        alt={profile.name}
-                        className='Profile-avatar'/>
+                    className='Profile-avatar'
+                    src={profile.avatar_url}
+                    alt={profile.name}/>
 
                     <ul>
                         <li>
@@ -46,7 +46,7 @@ function Profile({userName}) {
                         </li>
                         
                         <li>
-                            <span>name: </span> 
+                            <span>name: </span>
                             {profile.name}
                         </li>
                         
@@ -69,7 +69,6 @@ function Profile({userName}) {
                             <span>bio: </span>
                             {profile.bio}
                         </li>
-
                     </ul>
                 </div>
             )}
