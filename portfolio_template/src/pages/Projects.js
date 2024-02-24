@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import List from '../components/List';
 import {Link as RouterLink} from 'react-router-dom';
+import List from '../components/List';
 
 function Projects({ userName }) {
     const [loading, setLoading] = useState(true);
@@ -28,7 +28,7 @@ function Projects({ userName }) {
                 <div>
                     <List items={projects.map((project) => ({
                         field: project.name,
-                        value: <RouterLink url={project.html_url} title={project.html_url}/>,
+                        value: <a href={project.html_url} target="_blank" rel="noopener noreferrer">{project.name}</a>,
                         }))}/>
                 </div>
             )}

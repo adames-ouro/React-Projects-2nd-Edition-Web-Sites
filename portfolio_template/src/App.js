@@ -5,7 +5,7 @@ import './App.css';
 import logo from './assets/logo.svg';
 import Profile from './pages/Profile';
 import Projects from './pages/Projects';
-import ProjectDetail from './pages/ProjectDetailpages'
+import ProjectDetailpages from './pages/ProjectDetailpages'
 
 
 function App() {
@@ -14,9 +14,9 @@ function App() {
       <BrowserRouter>
         <Header logo={logo}/>
         <Routes>
-          <Route path='/' element={<Profile userName='octocat'/>}/>
-          <Route path='/projects' element={<Projects userName='octocat' />}/>
-          <Route path='/projects/:name' element={<ProjectDetail userName='octocat' />}/>
+          <Route exact path='/' element={<Profile userName='adames-ouro'/>}/>
+          <Route path='/projects' element={<Projects userName='adames-ouro' />}/>
+          <Route path='/projects/:name' element={<ProjectDetailpages userName='adames-ouro' />}/>
         </Routes>
       </BrowserRouter>
     </div>
