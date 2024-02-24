@@ -5,6 +5,8 @@ import './App.css';
 import logo from './assets/logo.svg';
 import Profile from './pages/Profile';
 import Projects from './pages/Projects';
+import ProjectDetail from './pages/ProjectDetailpages'
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Profile userName='octocat'/>}/>
           <Route path='/projects' element={<Projects userName='octocat' />}/>
+          <Route path='/projects/:name' element={<ProjectDetail userName='octocat' />}/>
         </Routes>
       </BrowserRouter>
     </div>
