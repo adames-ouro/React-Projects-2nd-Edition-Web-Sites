@@ -9,7 +9,7 @@ function Profile({userName}) {
 
     useEffect(() => {
         async function fetchData() {
-            const profile = await fetch('https://api.github.com/users/octocat');
+            const profile = await fetch('https://api.github.com/users/${userName}');
             const result = await profile.json();
 
             if (result) {
