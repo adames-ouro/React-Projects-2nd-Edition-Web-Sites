@@ -13,11 +13,11 @@ function Backlog() {
             {loading || error ? (
                 <span>{error || 'Loading...'}</span>
             ):(
-                task.map((task) => (
-                    <Task 
-                    key={task.id} 
-                    title={task.title} 
-                    body={task.body} />
+             tasks.map((task) => (
+                <Task 
+                key={task.id} 
+                title={task.title} 
+                body={task.body} />
                 ))
             )}
             </div>
