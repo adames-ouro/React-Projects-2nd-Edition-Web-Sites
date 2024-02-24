@@ -1,0 +1,13 @@
+{
+    "post":[
+        {
+            "id":1,
+            "title":"Hello World"
+        }
+    ],
+
+    "profile":{
+            "id":1,
+            "name":"typicode"
+        }
+}
