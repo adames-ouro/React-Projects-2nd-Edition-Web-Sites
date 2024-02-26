@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Head from 'next/head';
 
 const HeaderWrapper = styled.div`
   background-color: orange;
@@ -19,18 +18,9 @@ const Title = styled.h1`
 
 function Header() {
   return (
-    <>
-      <Head>
-        <title>Community Feed</title>
-        <meta
-          name='description'
-          content='This is a Community Feed project build with React'
-        />
-      </Head>
-      <HeaderWrapper>
-        <Title>Community Feed</Title>
-      </HeaderWrapper>
-    </>
+    <HeaderWrapper>
+      <Title>Community Feed</Title>
+    </HeaderWrapper>
   );
 }
 
