@@ -1,6 +1,6 @@
 import useDataFetching from '../../hooks/useDataFetching';
 import Lane from '../../components/Lane/Lane';
-import './Board.css';
+import styled from 'styled-components'; // npm install styled-components
 import { useState, useEffect } from 'react'; // for mutate the state fater finish drag operations
 
 const lanes = [
@@ -21,6 +21,17 @@ function onDragOver(e){
   e.preventDefault();
 }
 
+const BoardWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 5%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+`;
 
 function Board() {
   const [loading, error, data] = useDataFetching('https://my-json-server.typicode.com/PacktPublishing/React-Projects-Second-Edition/tasks');
@@ -47,7 +58,7 @@ function Board() {
   // onDrop and laneId  passed as prop to Task component for droping element into another 
 
   return (
-    <div className='Board-wrapper'>
+    <BoardWrapper>
       {lanes.map((lane) => (
         <Lane 
         key={lane.id}
@@ -61,7 +72,7 @@ function Board() {
         onDrop={onDrop}
         />
       ))}
-    </div>
+    </BoardWrapper>
   );
 }
 
