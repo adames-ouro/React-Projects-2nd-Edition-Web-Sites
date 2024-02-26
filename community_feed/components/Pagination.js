@@ -15,7 +15,7 @@ const PaginationLink = styled.a`
     text-decoration: none;
     border-radius: 1px;
     justify-content: center;
-    bacground: ${(props) => (!props.disabled ? 'orange' : 'lightGrey')};
+    background: ${(props) => (!props.disabled ? 'orange' : 'grey')};
     pointer-events: ${(props) => (!props.disabled ? 'all' : 'none')};
     `;
 
