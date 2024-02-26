@@ -1,7 +1,10 @@
 import './Lane.css';
 import Task from '../Task/Task';
 
-function Lane({ title, loading, error, tasks }) {
+
+// adding onDragStart to the Lane component for drag and drop functionality
+
+function Lane({ title, loading, error, tasks, onDragStart }) {
   return (
     <div className='Lane-wrapper'>
       <h2>{title}</h2>
@@ -13,7 +16,9 @@ function Lane({ title, loading, error, tasks }) {
           key={task.id} 
           id={task.id}
           title={task.title}
-          body={task.body}/>
+          body={task.body}
+          onDragStart={onDragStart}
+          />
         ))
       )}
     </div>

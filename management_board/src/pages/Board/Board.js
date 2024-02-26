@@ -9,6 +9,12 @@ const lanes = [
   { id: 4, title: 'Done' },
 ];
 
+// for drag and drop lane and tasks
+function onDragStart(e,id){
+  e.dataTransfer.setData('id',id);
+}
+
+
 function Board() {
   const [loading, error, tasks] = useDataFetching('https://my-json-server.typicode.com/PacktPublishing/React-Projects-Second-Edition/tasks');
   
@@ -21,7 +27,9 @@ function Board() {
         loading={loading}
         error={error}
         tasks={tasks.filter((task) => 
-               task.lane === lane.id)}/>
+               task.lane === lane.id)}
+        onDragStart={onDragStart}
+        />
       ))}
     </div>
   );
