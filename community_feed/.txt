@@ -10,3 +10,7 @@ This will produce a functional template.
 
 
 Benefits of Next.js -> Good for Search Engine Optimization (SEO)
+
+
+too add components directly without .css file
+npm install styled-components
