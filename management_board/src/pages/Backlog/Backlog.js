@@ -5,8 +5,13 @@ import styled from 'styled-components'; // npm install styled-components
 // new style component named TaskWrapper, extends a div and take the CSS rule for the Task-wrapper class in Task.css, after this We can delete the .css
 const BacklogWrapper = styled.div`
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     margin: 5%;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+      }
 
     h2 {
         width: 100%;
@@ -19,10 +24,8 @@ const BacklogWrapper = styled.div`
 const TaskWrapper = styled.div`
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 5%;`
-
+    flex-direction: column;
+    margin: 5%`;
 
 function Backlog() {
     const [loading, error, tasks] = useDataFetching('https://my-json-server.typicode.com/PacktPublishing/React-Projects-Second-Edition/tasks');

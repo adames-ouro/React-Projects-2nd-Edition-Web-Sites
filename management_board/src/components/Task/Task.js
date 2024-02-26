@@ -24,9 +24,9 @@ const Title = styled.h3`
 // onDrop and laneId to drop element into another 
 function Task({ id, title, body, onDragStart}) {
   return (
-    <TaskWrapper draggable onDragStart={ (e) => onDragStart(e,id) }>
+    <TaskWrapper draggable onDragStart={ (e) => typeof onDragStart === 'function' && onDragStart(e,id) }>
       <Title>{title}</Title>
-      <p>{body}</p>
+        <p>{body}</p>
     </TaskWrapper>
   );
 }

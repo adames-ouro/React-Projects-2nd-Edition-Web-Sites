@@ -10,17 +10,6 @@ const lanes = [
   { id: 4, title: 'Done' },
 ];
 
-// adding onDragStart to start drag functionality
-
-function onDragStart(e,id){
-  e.dataTransfer.setData('id',id);
-}
-
-// adding onDragOver to drop element into another
-function onDragOver(e){
-  e.preventDefault();
-}
-
 const BoardWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -32,6 +21,16 @@ const BoardWrapper = styled.div`
   }
 
 `;
+
+// adding onDragStart to start drag functionality
+function onDragStart(e,id){
+  e.dataTransfer.setData('id',id);
+};
+
+// adding onDragOver to drop element into another
+function onDragOver(e){
+  e.preventDefault();
+};
 
 function Board() {
   const [loading, error, data] = useDataFetching('https://my-json-server.typicode.com/PacktPublishing/React-Projects-Second-Edition/tasks');
@@ -47,7 +46,7 @@ function Board() {
     const id = e.dataTransfer.getData('id');
 
     const updatedTasks = tasks.filter((task) => {
-      if (task.is.toString() === id) {
+      if (task && task.id && task.id.toString() === id) {
         task.lane = laneId;
       }
       return task;

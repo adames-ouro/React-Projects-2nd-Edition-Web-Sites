@@ -43,7 +43,6 @@ function Lane({ laneId, title, loading, error, tasks, onDragStart, onDragOver, o
           title={task.title}
           body={task.body}
           onDragStart={onDragStart}
-          onDrop={(e) => onDrop(e, laneId)}
           />
         ))
       )}
