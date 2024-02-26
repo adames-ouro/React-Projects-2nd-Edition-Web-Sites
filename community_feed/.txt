@@ -1,0 +1,10 @@
+To Support Server Side Rendering (SSR), we can use Next.js
+
+With SSR, Seaarch Engine Optimization (SEO), SSR comes with the advantage that we can add
+metadata to the app so it can be indexed by search engines.
+
+In this project, we will create a community feed application using Next.js that supports 
+SSR and therefore is loaded from the server rather than the browser. This app will be 
+optimized for search engines.
+
+Since we have SSR, this app can be deployed to Vercel.
