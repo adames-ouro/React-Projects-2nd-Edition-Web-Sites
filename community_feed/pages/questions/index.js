@@ -26,8 +26,8 @@ function Questions({ questions, hasMore, page }) {
         <div>
           {questions.map((question) => (
             <Link
-              href={`/questions/${question.question_id}`}
               key={question.question_id}
+              href={`/questions/${question.question_id}`}
               passHref
             >
               <CardLink>

@@ -24,7 +24,9 @@ function Card({ title, views, answers }) {
   return (
     <CardWrapper>
       <Title>{title}</Title>
-      <Count>{`Views: ${views} | Answers: ${answers}`}</Count>
+      <Count>{
+        `Views: ${views} | Answers: ${answers}`}
+      </Count>
     </CardWrapper>
   );
 }

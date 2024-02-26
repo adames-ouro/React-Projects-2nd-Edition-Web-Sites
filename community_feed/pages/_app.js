@@ -18,7 +18,6 @@ function MyApp({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <Header />
-      
       <Component {...pageProps} />
     </>
   );
