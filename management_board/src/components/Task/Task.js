@@ -1,6 +1,7 @@
 import './Task.css';
 
-// adding onDragStart to the Task component for drag and drop functionality
+// adding onDragStart to start drag functionality
+// onDrop and laneId to drop element into another 
 
 function Task({ id, title, body, onDragStart}) {
   return (
