@@ -24,7 +24,7 @@ const Header = () => (
       <meta name = 'description' content='This is a Community Feed project build with react'/>
     </Head>
     <HeaderWrapper>
-      <Title>Welcome to Community Feed</Title>
+      <Title>Community Feed</Title>
     </HeaderWrapper>
 </>
 );
