@@ -12,12 +12,12 @@ const Title = styled.h2`
   width: 100%;
   padding-bottom: 10px;
   text-align: center;
-  border-bottom: 1px solid darkGray;
+  border-bottom: 1px solid black;
   color: black;
 `;
 
 const Count = styled.span`
-  color: darkGray;
+  color: black;
 `;
 
 function Card({ title, views, answers }) {
