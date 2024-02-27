@@ -39,7 +39,6 @@ function QuestionDetail() {
                 <span>Loading...</span>
                 ):(
                 <Card 
-                key={question.question_id}
                 title={question.title} 
                 views={question.view_count} 
                 answers={question.answers_count}/>
