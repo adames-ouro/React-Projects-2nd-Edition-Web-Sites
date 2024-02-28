@@ -1,8 +1,8 @@
+// This part remains the same
 import styled from 'styled-components';
-import {useState, useEffect} from 'react';
-import Card from '../../components/Card';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Card from '../../components/Card';
+import Pagination from '../../components/Pagination';
 
 const QuestionsContainer = styled.div`
   display: flex;
@@ -15,36 +15,19 @@ const CardLink = styled.a`
   text-decoration: none;
 `;
 
-
-function Questions() {
-
-  const [loading, setLoading] = useState(false);
-  const [questions, setQuestions] = useState([]);
-  const router = useRouter();
-  const {page} = router.query;
-
-  useEffect(() => {
-    async function fetchData() {
-      const data = await fetch(`https://api.stackexchange.com/2.2/questions?${page ? 'page=${page}&' : ''}order=desc&sort=hot&tagged=reactjs&site=stackoverflow`);
-      const result = await data.json();
-
-      if (result) {
-        setQuestions(result.items);
-        setLoading(false);
-      }
-    }
-    fetchData();
-  }, [page]);
-
+function Questions({ questions, hasMore, page }) {
+  // No need to fetch the data in a useEffect hook anymore
+  // The data is now passed as a prop to the component
 
   return (
-      <QuestionsContainer>
-        <h2>Questions</h2>
-        {loading ? (
-          <span>Loading...</span>
-        ):(
+    <QuestionsContainer>
+      <h2>Questions</h2>
+      {questions ? (
+        <span>Loading...</span>
+      ) : (
+        <>
           <div>
-            {questions.map((question) => (
+            { questions && questions.map((question) => (
               <Link key={question.question_id} href={`/questions/${question.question_id}`} passHref>
                 <CardLink>
                   <Card
@@ -55,9 +38,28 @@ function Questions() {
               </Link>
             ))}
           </div>
-        )}
-      </QuestionsContainer>
+          <Pagination currentPage={parseInt(page) || 1} hasMore={hasMore} />
+        </>
+      )}
+    </QuestionsContainer>
   );
+}
+
+// Fetch the data on the server side before the page is rendered
+export async function getServerSideProps(context) {
+  const { page } = context.query;
+  const res = await fetch(`https://api.stackexchange.com/2.2/questions?${page ? `page=${page}&` : ''}order=desc&sort=hot&tagged=reactjs&site=stackoverflow`);
+  const data = await res.json();
+  const questions = data.items;
+  const hasMore = data.has_more;
+
+  return {
+    props: {
+      questions,
+      hasMore,
+      page,
+    },
+  };
 }
 
 export default Questions;

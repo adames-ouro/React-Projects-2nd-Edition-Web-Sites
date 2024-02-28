@@ -1,51 +1,45 @@
+// This part remains the same
 import {useRouter} from 'next/router';
 import styled from 'styled-components';
-import {useState, useEffect} from 'react';
 import Card from '../../components/Card';
-
 
 const QuestionDetailContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin: 5%;
     justify-content: space-between;
-    `;
+`;
 
-function QuestionDetail() {
-    const router = useRouter();
-    const {id} = router.query;
-
-    const [loading, setLoading] = useState(false);
-    const [question, setQuestion] = useState({});
-
-
-    useEffect(() => {
-        async function fetchData() {
-            const data = await fetch(`https://api.stackexchange.com/2.2/questions/${id}?site=stackoverflow`);
-            const result = await data.json();
-
-            if (result) {
-                setQuestion(result.items[0]);
-                setLoading(false);
-            }
-        }
-        id && fetchData();
-    }, [id]);
-
+function QuestionDetail({ question }) {
+    // No need to fetch the data in a useEffect hook anymore
+    // The data is now passed as a prop to the component
 
     return (
         <QuestionDetailContainer>
-            {loading ? (
-                <span>Loading...</span>
-                ):(
+            {question ? (
                 <Card 
                 title={question.title} 
                 views={question.view_count} 
-                answers={question.answers_count}/>
-                )
-            }
+                answers={question.answer_count}/>
+            ) : (
+                <span>Loading...</span>
+            )}
         </QuestionDetailContainer>
     );
+}
+
+// Fetch the data on the server side before the page is rendered
+export async function getServerSideProps(context) {
+    const { id } = context.params;
+    const res = await fetch(`https://api.stackexchange.com/2.2/questions/${id}?site=stackoverflow`);
+    const data = await res.json();
+    const question = data.items[0];
+
+    return {
+        props: {
+            question,
+        },
+    };
 }
 
 export default QuestionDetail;
