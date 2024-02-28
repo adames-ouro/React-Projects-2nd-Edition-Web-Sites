@@ -3,18 +3,21 @@ import Link from 'next/link';
 
 const PaginationContainer = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
     `;
 
-const PaginationLink = styled.a`
-    padding: 2%;
-    margin: 1%;
+const PaginationLink = styled.div`
     background: ${(props) => (!props.disabled ? 'orange': 'lightgrey')};
     pointer-events: ${(props) => (props.disabled ? 'all': 'none')};
     cursor: ${(props) => (!props.disabled ? 'pointer': 'not-allowed')};
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+    color: black;
+    border-radius: 50px;
+    height: 30px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     `;
 
 function Pagination({ currentPage, hasMore }) {

@@ -21,7 +21,7 @@ const Header = () => (
   <>
     <Head>
       <title>Community Feed</title>
-      <meta name = 'description' content='This is a Community Feed project build with react'/>
+      <meta name = 'description' content='This is a Community Feed project build with React'/>
     </Head>
     <HeaderWrapper>
       <Title>Community Feed</Title>
