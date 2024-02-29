@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { useNavigate, useParams } from 'react-router-dom';
-import useDataFetching from '../hooks/useDataFetching';
-import NavBar from '../components/NavBar';
+import ItemsContext from '../context/ItemsContext';
+import ListsContext from '../context/ListsContext';
+import NavBar from '../components/NavBar.js';
 import ListItem from '../components/ListItem';
 
 const ListItemWrapper = styled.div`
@@ -16,24 +17,24 @@ function ListDetail() {
   let navigate = useNavigate();
   const { listId } = useParams();
 
-  const [loading, error, data] = useDataFetching(
-    'https://my-json-server.typicode.com/PacktPublishing/React-Projects-Second-Edition/items/',
-  );
-
-  const [items, setItems] = useState([]);
+  const { loading, error, items, fetchItems } = useContext(ItemsContext);
+  const { list, fetchList } = useContext(ListsContext);
 
   useEffect(() => {
-    data &&
-      listId &&
-      setItems(data.filter((item) => item.listId === parseInt(listId)));
-  }, [data, listId]);
+    listId && !items.length && fetchItems(listId);
+  }, [fetchItems, items, listId]);
+
+  useEffect(() => {
+    listId && fetchList(listId);
+  }, [fetchList, listId]);
 
   return (
     <>
       {navigate && (
         <NavBar
           goBack={() => navigate(-1)}
-          openForm={() => navigate(`/list/${listId}//new`)}
+          openForm={() => navigate(`/list/${listId}/new`)}
+          title={list && list.title}
         />
       )}
       <ListItemWrapper>
