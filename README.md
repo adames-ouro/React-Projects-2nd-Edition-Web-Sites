@@ -1,6 +1,7 @@
 ### React Projects - Web applications
 
 Based on chapters:
+
  1 - Creating a Single-Page Application in React
  
  2 - Creating a Portfolio in React with Reusable Components and Routing
