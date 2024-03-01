@@ -11,7 +11,13 @@ In this chapter, the Create React App is used to create a portfolio page. This t
 
 ### Setting up react project
 
---- Keep editing here ----
+- In the ublic folder there are files that are not included in the compile and build process
+
+- index.js is the entry point fro create react app
+
+- Any change in the code will be reflected in the browser
+
+
 
 ```bash
 npx create-react-app <project-name>
@@ -20,3 +26,8 @@ npm install react-router-dom
 ```
 
 ### Main takeaways:
+
+- Three types of components:
+    1. Router components
+    2. Route matching components
+    3. Navigation components
