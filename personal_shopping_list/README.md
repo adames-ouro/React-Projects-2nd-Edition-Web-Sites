@@ -9,7 +9,6 @@ This shopping list uses the Context API and Hooks to pass and retrieve data. Con
     2. Mutating Context with Hooks
     3. Code splitting with React Suspense
 
-
 ### Main takeaways:
 
 - State management can be handled in React by creating an app state that is accessible from every component.
